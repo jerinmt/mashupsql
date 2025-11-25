@@ -9,7 +9,7 @@ INSERT INTO students (name, email) VALUES ('Alice', 'alicenew@example.com'), ('B
 -- Create a table named courses
 CREATE TABLE courses (course_id INTEGER PRIMARY KEY AUTO_INCREMENT,
 course_name VARCHAR(10) NOT NULL);
-INSERT INTO courses VALUES ('Java'), ('Python'), ('NodeJS');
+INSERT INTO courses (course_name) VALUES ('Java'), ('Python'), ('NodeJS');
 -- Create a table named enrollments
 CREATE TABLE enrollments (id INTEGER PRIMARY KEY AUTO_INCREMENT, student_id INTEGER REFERENCES students(student_id), course_id INTEGER REFERENCES courses(course_id));
-INSERT INTO enrollments VALUES (1, 1), (2, 3), (3, 1), (4, 2);
+INSERT INTO enrollments (student_id, course_id) VALUES (1, 1), (2, 3), (3, 1), (4, 2);
