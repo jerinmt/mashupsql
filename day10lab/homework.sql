@@ -8,8 +8,8 @@ author_name VARCHAR(30) NOT NULL, email VARCHAR(30));
 INSERT INTO authors (author_name, email) VALUES ('Bob', 'bob1994@example.com'), ('Charlie', 'charliecharlie@example.com'), ('June', 'junejulyaugust@example.com');
 -- Create a table named books
 CREATE TABLE books (book_id INTEGER AUTO_INCREMENT,
-book_title VARCHAR(10) NOT NULL, author_id INTEGER);
-INSERT INTO books VALUES ('Java 4 All', 1), ('Python Made Easy', 2), ('NodeJS- A study', 3);
+book_title VARCHAR(30) NOT NULL, author_id INTEGER);
+INSERT INTO books (book_title, author_id) VALUES ('Java 4 All', 1), ('Python Made Easy', 2), ('NodeJS- A study', 3);
 -- No two authors can have the same email address.
 ALTER TABLE authors ADD UNIQUE (email);
 -- Each author and book must have a unique ID.
