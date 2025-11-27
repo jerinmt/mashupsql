@@ -20,3 +20,23 @@ WHERE department='Operations';
 SELECT department, count(department) AS "Number of employees" 
 FROM employee 
 GROUP BY department;
+--departments that have more than 10 leaves in total
+SELECT department, sum(leaves) AS "Total Leaves" 
+FROM employee 
+GROUP BY department
+HAVING sum(leaves) > 10;
+--employees who passed the exam
+SELECT employee.name AS "Passed employees"
+FROM employee
+JOIN exam
+ON employee.id=exam.employee_id
+WHERE exam.exam_status='Pass';
+--employees who didn't take exam
+SELECT name AS "Not attended"
+FROM employee
+WHERE name NOT IN(
+    SELECT name
+    FROM employee 
+    JOIN exam 
+    ON employee.id=exam.employee_id
+);
