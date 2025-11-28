@@ -32,11 +32,8 @@ JOIN exam
 ON employee.id=exam.employee_id
 WHERE exam.exam_status='Pass';
 --employees who didn't take exam
-SELECT name AS "Not attended"
+SELECT employee.name
 FROM employee
-WHERE name NOT IN(
-    SELECT name
-    FROM employee 
-    JOIN exam 
-    ON employee.id=exam.employee_id
-);
+LEFT JOIN exam
+ON employee.id=exam.employee_id
+WHERE exam.exam_status IS NULL;
